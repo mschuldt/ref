@@ -1,0 +1,304 @@
+The Forth Programming Language - Why YOU should learn it
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The forth programming language is radically different from conventional
+programming languages. It bears little resemblance to C, Java, Pascal,
+Lisp, Python, etc. This short article will not attempt to teach you the forth
+language, but instead give you a taste of what forth has to offer, give
+you a general idea of what the language is, and point you in the direction
+of various forth resources.
+
+The forth programming language was originally formalized in the early
+70s by Chuck Moore, but its beginnings predate that by several years,
+mostly as a small, specialized programming platform for various systems.
+After forth began to become more well known, 2 driving forces instantiated
+to promote forth use: Forth, Inc. and the non-profit Forth Interest Group
+(FIG). Forth had a brief stint with popularity after microcomputers
+were introduced, often being the first language to support the new
+microprocessors, but soon fell into relative obscurity in mainstream
+programming.
+
+Forth is unique in that the evolution and acceptance of it has
+proceeded as an entirely grassroots effort. Large industry has never
+backed or supported forth, and has always driven the development and
+use of more "conventional" programming languages, such as C.
+
+With a few exceptions, forth is also unique in how diversified the language
+is. Unlike, say LISP, though, there seems to be a common thread among
+forths giving the community a particular unity. However, forth is the
+only programming language that has a strong, vocal user community that is
+actively against the ANSI standard of its language, and chooses not to
+upport it. There are many reasons for this viewpoint, none of which a
+beginner will notice until they become better acquainted with the language.
+
+Forth is built upon the belief that every implementation aspect of the
+language should be as simple as possible, and that all complexity should
+be built upon this base of simplicity. Forth philosphy also insists that
+in extreme flexibility. This flexibility is overwhelming to many new
+forth users, and often gives them a bad taste for the language.
+
+Because of this philosophy forth programs are known for their small
+codesize, low memory usage, powerful flexibility, and difficulty to
+understand. :)
+
+Forth is, at heart, a system programmer's programming language because
+of its remarkable flexibility. An endless stream of people have extended
+forth to support their preferred programming and usage preferences.
+Forth was, interestingly, a very early language to support Object
+Oriented programming. People have added GOTO statements to forth. 
+Transparent support for C structures has been added. "Local variables"
+have been developped for forth (this is a hot topic in the Forth communities,
+by the way). People have developed sophisticated GUIs in forth. Forth code
+has run on the space shuttle.
+
+Forth is usually considered much more than a programming language though.
+It's also (sometimes) an operating system, an Integrated Development
+Environment, a debugger, a run-time environment, an interpreter, and a
+programming methodology.
+
+At the heart of forth is a variable called "state". Generally, state
+represents either interpret mode or compile mode, and this variable
+will influence almost everything done by the system. Most forth
+introductions don't find it necessary to introduce state until much
+later in the learning period, but I think that the ability to flip
+between compilation and interpretation mode (execution semantics)
+is the most important defining feature of forth.
+
+More visibly, forth provides the user with 2 stacks of small, fixed
+cell size (typically 32 or 64 bits on modern computers). Forth provides
+direct access to these stacks. This is in marked contrast to most languages.
+Most languages, like C, use 1 stack of large "stack frames" that the user
+is not permitted to directly access.
+
+One interesting result of this design decision that I like to point out
+to new forth programmers is that your functions (called "words" in forth
+- I'll get to them) are no longer limited to returning one item.
+
+For instance, in C, your functions may look like this:
+
+int my_func(int x, int y) {
+  ...
+  return 10;
+}
+
+As you can see, this function accepts 2 arguments and returns 1.
+In C, there is no way to directly return 2 or more arguments without
+allocating memory and passing pointers - a procedure that can get very
+messy.
+
+In forth, you have no such restrictions. If you want to return 2
+items, go ahead. If you want to return 10 items, feel free. You're even
+allowed to return 3 items sometimes, and 39 items other times. It's up
+to the programmer.
+
+
+Forth is generally said to be an "RPN" language. RPN stands for
+"Reverse Polish Notation". RPN was originally invented by a, you guessed
+it, polish professor, and is an effective way of expressing arithmetical
+expressions without using parenthesis.
+
+Everything is done on a stack. Numbers are pushed down, and operators
+pop the numbers and preform operations on them.
+
+For instance, the expression
+
+(1+3)-2
+
+would be written like this in RPN:
+
+1 3 + 2 -
+
+All programming in forth is done like this. If you want to program in
+forth you have to learn to "think on the stack". Meaning, you have to
+keep track of the "stack effects" of your functions as well as their
+purpose.
+
+
+The "dictionary" is the name of the append-oriented heap where your
+forth "words" are stored. A word in forth is, simply, any combination
+of displayable, non-whitespace characters that represents a location in
+memory, and may have certain user-defined attributes.
+
+"Everything in forth is a word or a number". This is almost true.
+
+The word "+" takes the top 2 values off the stack, adds them, and pushes
+the result onto the stack.
+
+You can define your own words using the word ":". For instance, if you
+wanted to make a word that would take the top number off the stack, add
+42 to it, and press the result back onto the stack, you might write it
+like so:
+
+: add-42 42 + ;
+
+When ":" is executed, it puts the "state" variable into compile mode.
+Anything encountered now will be compiled into the add-42 definition.
+When it sees 42, it recognizes it as a number, but since the forth
+system is in compile mode, it compiles 42 into the definition. Next it
+compiles "+". Then it encounters the word ";" which it executes. ";"
+closes the add-42 definition, and returns "state" to interpret mode.
+
+Astute readers will be wondering why ";" was executed instead of compiled.
+This is because ";" is an immediate word. Immediate words are executed
+no matter what the value of state is. Immediacy is a very powerful feature
+in forth. Once you understand how immediate words are used to build up
+everything in the language, you will have understood the most important part
+of forth, that which I will not even try to describe here.
+
+You can, in turn, use "add-42" in interpret mode, or compile it into
+other definitions:
+
+Ex:
+4 add-42 .
+44   ok
+
+: add-40 add-42 -2 + ;
+  ok
+
+
+Here is a good point to note the stack effects of add-42. Notice how it
+takes 1 argument and returns 1 argument? This may be relatively
+obvious in this function, but as your words become more complex
+you will want to keep track of the stack effects. Forth programmers
+often do that like so:
+
+: add-42 ( n -- n' ) 42 + ;
+
+The word "(" is an immediate word that will force forth to ignore everything
+until a ")" is encountered. Not that ")" is NOT a word. Nor is anything
+between the parens. IMPORTANT: Note that "(" is followed by a space.
+This is vital. The word is "(", not "(n". So, as you can see, parens
+function similarly to C's /* and */. The word "\" in forth is analogous
+to C++'s "//".
+
+The contents of the comment is what's signifigant. The text before the
+"--" indicates the arguments passed to the function, and the text after 
+indicates the values returned on the stack. The convention is that
+the numbers closest to the left are higher on the stack.
+
+
+Be careful using ":" though. If you add words that already exist in the
+dictionary, the "redefined" words will not be readily accessible. Experienced
+forth programmers will take advantage of this for a number of reasons, but
+a beginner should be careful to avoid this.
+
+As stated before, a word can be any combination of non-whitespace,
+displayable ASCII characters. There is nothing stopping a number (called
+a "literal" in forth) from being a word either.
+
+This is perfectly valid:
+
+: 1 2 ;
+
+Now 1 is effectively 2, so be careful. :)
+Incidentally, most forth systems define words called "0" and "1". This
+is because a compiled word takes less memory than a compiled literal, and
+0 and 1 are numbers used so often that signifigant memory can be saved using
+this technique.
+
+
+I mentioned that forth had 2 stacks. The data stack (aka paramater stack)
+is the one we've been focusing on so far. The return stack is the second
+kind of stack, and is used to store addresses so that after a word is
+executed, forth knows where to resume execution. You can move data to
+and from the return stack and the data stack with the words ">r" and "r>".1
+I wouldn't suggest doing this until you understand forth more thouroughly
+though.
+
+An experienced C programmer will be able to tell you that a return address
+and a function's "local variables" are stored in the same stackframe,
+making it trivial to write over the return address. This particular
+attribute of C has resulted in decades of insecure systems open to
+anyone with enough audacity to overflow a buffer. Forth greatly
+complicates this particular attack. Also, forth stores strings not
+as arrays of characters terminated by a "NULL byte", but as an array
+of unterminated characters and a "count" of the length of said array.
+As such, there are no such equivalents to C's strcpy() and gets() in forth.
+These 2 attributes make forth particularly resilient to buffer overflow
+attacks. Format strings also do not exist in Forth, ruling out another
+very popular attack.
+
+
+The last core feature of forth is the "parse buffer". It's where your
+text goes when you type stuff into forth. Normally forth parses a word
+delimited by white space, moves the parse pointer ahead to the next word,
+and executes the parsed word, and this continues indefinitley. When
+there is no more data available, it goes into interactive mode and
+accepts the words from stdin.
+
+Words can, however, modify the parse buffer. One common word for this
+is "'", pronounced "tick", which parses the next word in the buffer,
+looks up that word in the dictionary, presses this address onto the stack,
+and advances the parse buffer pointer. This is very useful in forth,
+although I won't explain why here.
+
+
+I hope this brief introduction to forth has been enough to tickle your
+curiosity. Just for fun, here's a listing of the words in a fully stocked
+"system" dictionary in my forth.
+
+HardCore SoftWare's FORTH system: FRUGAL   V0.9.8
+
+  ok
+words
+( 250 WORDS  - 18361 BYTES )
+intro bye iset> icreate choose rand reseed rand-num dump-line 8c. 8h. c. h.
+abort see procprint words bytes-and-words 'print print-word forget forget-addr
+.s term-clear-to-bot term-clear-to-top term-clear-line term-clear-to-sol
+term-clear-to-eol term-scroll-up term-scroll-down term-enable-scroll
+term-unsave term-save term-backward term-forward term-down term-up term-xy
+term-home term-cur-off term-cur-on term-wrap-off term-wrap-on term-cls
+term-attr term-bg term-fg hidden reverse blink underscore dim bright restore
+white cyan magenta blue yellow green red black emesc emchar rawkey key accept
+.( ." s" ," cmove movechar char, char type spaces space bl cr unlink num'
+move movecell depth ? +! hex decimal octal binary abs max min 2/ 2* 1- 1+
+negate . printnum recurse; recurse leave loop +loop do until while again
+begin then else if isunseeable unseeable exit postpone compile cmp ] [
+?branch branch #, 1 0 HEADER_LEN VM_IFBRANCH VM_BRANCH VM_NUMBER VM_PRIMITIVE
+UNSEEABLE COMPILE-ONLY IMMEDIATE READ-WRITE WRITE-ONLY READ-ONLY STDOUT
+STDIN 2@ 2! chars char+ cells cell+ 2variable variable var const constant
+allot here ms j' j i' i >= <= <> 0= 2dup 2over 2drop 2swap tuck nip rot swap
+over dup #! ( \ quit acceptconn openlistener openconn iptodns dnstoip poll
+close write read chdir open fork gettime time@ usleep flush term-raw-off
+term-raw-on ver include" l base die pad xor or and urshift ulshift rshift
+lshift c, c! c@ rp sp r0 s0 qpnum emit state r> >r mod / * - + @ ! roll pick
+drop = > < source >in ' '-addr ; : create create-addr parse , reset
+compile-only immediate h query interpret number compile-exit
+  ok
+
+
+Here's where you can download my forth implementation:
+
+http://www.hcsw.org/frugal/
+
+It comes included with a pong game, 2 encryption implementations,
+1 cryptographically secure random number generator, a powerful forth
+debugger, a basic webserver, and more!
+
+There's a more comprehensive tutorial included in the file docs/USING
+in the latest frugal download.
+
+For online forth help, visit irc.freenode.net  #forth
+There are many helpful people there who will help you get started with forth.
+
+
+Forth is not an especially easy language to learn when compared to
+other languages, simply because it gives you complete access and control
+over every aspect of the programming system. Chuck Moore once described
+other languages as dampeners, and forth as an amplifier. What he meant
+was that in most languages, the programming techniques are sufficiently
+abstracted and set at the "lowest common denominator" that good programmers
+will not do a signifigantly better job than bad programmers. Perl code is
+always between "kinda good" and "kinda bad". Forth on the other hand,
+amplifies the programmer's skill. A good programmer can write incredible
+forth code. A bad programmer can write absolutely stinking terrible forth
+code.
+
+Regardless of your programming skill, forth is useful to learn just for
+the feeling of enlightenment you'll feel when you finally "get it". I
+encourage you to investigate forth further even if just to realize that
+there are other ways of programming besides C and its derivatives.
+
+
+Fractal
+www.hcsw.org/frugal/
