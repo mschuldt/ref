@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">body { margin-left:0;margin-right:0;margin-top:0; }#google-cache-hdr {background:#f5f5f5 !important;font:13px arial,sans-serif !important;text-align:left !important;color:#202020 !important;border:0 !important;margin:0 !important;border-bottom:1px solid #cecece !important;line-height:16px !important ;padding:16px 28px 24px 28px !important;}#google-cache-hdr * {display:inline !important;font:inherit !important;text-align:inherit !important;color:inherit !important;line-height:inherit !important;background:none !important;border:0 !important;margin:0 !important;padding:0 !important;letter-spacing:0 !important;}#google-cache-hdr a {text-decoration:none !important;color:#1a0dab !important;}#google-cache-hdr a:hover { text-decoration:underline !important; }#google-cache-hdr a:visited { color:#609 !important; }#google-cache-hdr div { display:block !important;margin-top:4px !important; }#google-cache-hdr b {font-weight:bold !important;display:inline-block !important;direction:ltr !important;}pre { word-wrap:break-word; }pre { white-space:pre-wrap; }</style></head><body vlink="blue" link="blue" bgcolor="#ffffff"><div id="google-cache-hdr" dir="ltr"><div>This is the html version of the file <a href="http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=6241B4A4A237375CF41A16F08BA2895C?doi=10.1.1.34.5306&amp;rep=rep1&amp;type=pdf" dir="ltr">http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=6241B4A4A237375CF41A16F08BA2895C?doi=10.1.1.34.5306&amp;rep=rep1&amp;type=pdf</a>.<br><b>Google</b> automatically generates html versions of documents as we crawl the web.</div></div><div style="position:relative;margin:8px;">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Producer" content="ESP Ghostscript 815.02">
+<meta name="CreationDate" content="D:20071104201234">
+<meta name="ModDate" content="D:20071104201234">
+<title>Test Pattern Generation for Realistic Bridge Faults in CMOS ICs abstract</title>
+
+<table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="1"><b>Page 1</b></a></font></td></tr></tbody></table><font size="5" face="Times"><span style="font-size:30px;font-family:Times">
+<div style="position:absolute;top:418;left:276"><nobr>Test Pattern Generation for</nobr></div>
+<div style="position:absolute;top:451;left:244"><nobr>Realistic Bridge Faults in CMOS</nobr></div>
+<div style="position:absolute;top:484;left:437"><nobr>ICs</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:21px;font-family:Times">
+<div style="position:absolute;top:553;left:284"><nobr>F. Joel Ferguson and Tracy Larrabee</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:16px;font-family:Times">
+<div style="position:absolute;top:607;left:390"><nobr>UCSC-CRL-91-30</nobr></div>
+<div style="position:absolute;top:628;left:397"><nobr>August 23, 1991</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:744;left:395"><nobr>Baskin Center for</nobr></div>
+<div style="position:absolute;top:764;left:292"><nobr>Computer Engineering &amp; Information Sciences</nobr></div>
+<div style="position:absolute;top:785;left:330"><nobr>University of California, Santa Cruz</nobr></div>
+<div style="position:absolute;top:805;left:354"><nobr>Santa Cruz, CA 95064 USA</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:30px;font-family:Times">
+<div style="position:absolute;top:884;left:409"><nobr>abstract</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:933;left:186"><nobr>Two approaches have been used to balance the cost of generating e ective tests</nobr></div>
+<div style="position:absolute;top:954;left:162"><nobr>for ICs and the need to increase the ICs' quality level. The rst approach favors using</nobr></div>
+<div style="position:absolute;top:974;left:162"><nobr>high-level fault models to reduce test generation costs at the expense of test quality,</nobr></div>
+<div style="position:absolute;top:994;left:162"><nobr>and the second approach favors the use of low-level, technology-speci c fault models</nobr></div>
+<div style="position:absolute;top:1015;left:162"><nobr>to increase defect coverage but lead to unacceptably high test generation costs. In</nobr></div>
+<div style="position:absolute;top:1035;left:162"><nobr>this report we (1) present the results of simulations of complete single stuck-at</nobr></div>
+<div style="position:absolute;top:1055;left:162"><nobr>test sets against a low-level model of bridge defects showing that an unacceptably</nobr></div>
+<div style="position:absolute;top:1076;left:162"><nobr>high percentage of such defects are not detected by the complete stuck-at test sets;</nobr></div>
+<div style="position:absolute;top:1096;left:162"><nobr>(2) show how low-level bridge fault models can be incorporated into high-level test</nobr></div>
+<div style="position:absolute;top:1116;left:162"><nobr>generation; and (3) describe our system for generating e ective tests for bridge faults</nobr></div>
+<div style="position:absolute;top:1137;left:162"><nobr>and report on its performance.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:1363;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="2"><b>Page 2</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:1447;left:108"><nobr>0</nobr></div>
+<div style="position:absolute;top:1447;left:652"><nobr>1. Motivation</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:1482;left:108"><nobr>1. Motivation</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:1545;left:132"><nobr>The goal of a production testing system is to cost e ectively minimize the number of bad</nobr></div>
+<div style="position:absolute;top:1565;left:108"><nobr>parts that pass the tests. The number of bad parts that pass the tests are measured in de-</nobr></div>
+<div style="position:absolute;top:1586;left:108"><nobr>fective parts per million, or DPM. McCluskey and Buelow have shown a simple relationship</nobr></div>
+<div style="position:absolute;top:1606;left:108"><nobr>between the defect coverage of a test set, the yield of the manufacturing process, and the</nobr></div>
+<div style="position:absolute;top:1626;left:108"><nobr>quality level of the circuits that passed the test set assuming that defects are independently</nobr></div>
+<div style="position:absolute;top:1647;left:108"><nobr>distributed on the chip MB88]. Table 3 from McCluskey and Buelow's paper shows that to</nobr></div>
+<div style="position:absolute;top:1667;left:108"><nobr>obtain the relatively modest quality level of 200 DPM in a circuit with a 90% yield requires</nobr></div>
+<div style="position:absolute;top:1687;left:108"><nobr>that the test set detect 99.8% of the manufacturing defects. If the yield is 75%, the test set</nobr></div>
+<div style="position:absolute;top:1708;left:108"><nobr>must detect 99.93% of the defects.</nobr></div>
+<div style="position:absolute;top:1730;left:132"><nobr>Recent evidence shows that many defects are not detected by test sets that detect all</nobr></div>
+<div style="position:absolute;top:1750;left:108"><nobr>single stuck-at faults (hereafter called complete SSF test sets) in some circuits FS88, SM90,</nobr></div>
+<div style="position:absolute;top:1771;left:108"><nobr>PRM90]. The studies reported by Ferguson and Shen, and Storey and Maly consisted of</nobr></div>
+<div style="position:absolute;top:1791;left:108"><nobr>defect simulations to determine which circuit-level defects were probable, followed by a fault</nobr></div>
+<div style="position:absolute;top:1811;left:108"><nobr>simulation to nd the defect coverage FS88, SM90]. The study by Pancholy, et al., involved</nobr></div>
+<div style="position:absolute;top:1831;left:108"><nobr>fabricating easily diagnosable integrated circuits, testing them with a diagnostic test set,</nobr></div>
+<div style="position:absolute;top:1852;left:108"><nobr>and applying a complete SSF test set to the faulty ICs. The complete SSF test set detected</nobr></div>
+<div style="position:absolute;top:1872;left:108"><nobr>only 98.74% of the faulty blocks on the ICs fabricated by Pancholy, et al.</nobr></div>
+<div style="position:absolute;top:1895;left:132"><nobr>Our approach for increasing the quality (decreasing the defect level) of shipped ICs is</nobr></div>
+<div style="position:absolute;top:1915;left:108"><nobr>to determine which faults are likely to occur, then nd which of these are not detected by</nobr></div>
+<div style="position:absolute;top:1935;left:108"><nobr>the SSF test set, and generate tests that detect the undetected faults. Likely faults are</nobr></div>
+<div style="position:absolute;top:1956;left:108"><nobr>determined by simulating the results of known defect mechanisms, such as dust and other</nobr></div>
+<div style="position:absolute;top:1976;left:108"><nobr>contaminants in the fabrication process, to the physical layout of the circuit. This is done</nobr></div>
+<div style="position:absolute;top:1996;left:108"><nobr>as an automated defect simulation on the circuit layout. We refer to the faults that result in</nobr></div>
+<div style="position:absolute;top:2016;left:108"><nobr>the defect simulation as realistic faults since they can be realized by known defect causing</nobr></div>
+<div style="position:absolute;top:2037;left:108"><nobr>mechanisms.</nobr></div>
+<div style="position:absolute;top:2059;left:132"><nobr>The output of earlier defect simulators were unsuitable for automatic test pattern</nobr></div>
+<div style="position:absolute;top:2080;left:108"><nobr>generation (ATPG), and the time for fault simulation was too great for the simulator to</nobr></div>
+<div style="position:absolute;top:2100;left:108"><nobr>be combined with a production ATPG system. We avoid these disadvantages by rst</nobr></div>
+<div style="position:absolute;top:2120;left:108"><nobr>identifying realistic faults, which are generally presented as a change in the netlist of the</nobr></div>
+<div style="position:absolute;top:2141;left:108"><nobr>circuit, and then translating these into changes in the logical function of the circuit. This</nobr></div>
+<div style="position:absolute;top:2161;left:108"><nobr>allows fault simulation and test generation for the circuit with a much better performance</nobr></div>
+<div style="position:absolute;top:2181;left:108"><nobr>than if fault simulation and ATPG were done at the switch or transistor level.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:2551;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="3"><b>Page 3</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:2635;left:802"><nobr>1</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:2670;left:162"><nobr>2. The Scope of this Report</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:2733;left:186"><nobr>The discussion in this report is restricted to the domain of fault modeling and ATPG</nobr></div>
+<div style="position:absolute;top:2753;left:162"><nobr>for circuits designed using standard cells. The approach presented here can be extended</nobr></div>
+<div style="position:absolute;top:2774;left:162"><nobr>to apply to gate arrays and other ASIC technologies, but is more easily implemented for</nobr></div>
+<div style="position:absolute;top:2794;left:162"><nobr>standard cell designs. We partition the realistic faults into three categories, and the tests are</nobr></div>
+<div style="position:absolute;top:2814;left:162"><nobr>generated for each fault based on which category it is in. The three categories are bridges</nobr></div>
+<div style="position:absolute;top:2834;left:162"><nobr>and breaks within the cell, bridges in the interconnect, and breaks in the interconnect.</nobr></div>
+<div style="position:absolute;top:2855;left:162"><nobr>In future work we will consider less common faults, such as, bridges between cells and</nobr></div>
+<div style="position:absolute;top:2875;left:162"><nobr>interconnect, and bridges between adjacent cells.</nobr></div>
+<div style="position:absolute;top:2897;left:186"><nobr>The behavior of a cell with a bridge or break fault can be determined using a circuit-level</nobr></div>
+<div style="position:absolute;top:2918;left:162"><nobr>simulator such as Spice. The computation costs of circuit-level simulation can be amortized</nobr></div>
+<div style="position:absolute;top:2938;left:162"><nobr>over the life of the standard cell library in the same way that the costs of characterizing</nobr></div>
+<div style="position:absolute;top:2958;left:162"><nobr>the library are amortized. Also the relatively small size of most cells makes circuit-level</nobr></div>
+<div style="position:absolute;top:2978;left:162"><nobr>simulation feasible. The faults in a large cell can be characterized by partitioning the cell</nobr></div>
+<div style="position:absolute;top:2999;left:162"><nobr>into smaller cells and characterizing them independently.</nobr></div>
+<div style="position:absolute;top:3021;left:186"><nobr>The result of the circuit simulation for a cell would be a list of input vectors for each</nobr></div>
+<div style="position:absolute;top:3041;left:162"><nobr>cell that sensitize the cell's inputs and the resulting faulty behavior. The input cubes</nobr></div>
+<div style="position:absolute;top:3062;left:162"><nobr>for sensitizing the cell and the location of the error could be used by a logic level ATPG</nobr></div>
+<div style="position:absolute;top:3082;left:162"><nobr>system. For simple cells such as AND-OR-INV complex gates, it may be that SSF test sets</nobr></div>
+<div style="position:absolute;top:3102;left:162"><nobr>are su cient for detecting the realistic faults in the cell. We are currently characterizing</nobr></div>
+<div style="position:absolute;top:3123;left:162"><nobr>the standard cells in the National Security Agency's CMOSn library. This will be reported</nobr></div>
+<div style="position:absolute;top:3143;left:162"><nobr>on in the near future.</nobr></div>
+<div style="position:absolute;top:3165;left:186"><nobr>Breaks in signal lines cause the inputs to some of the receiving cells to be disconnected</nobr></div>
+<div style="position:absolute;top:3185;left:162"><nobr>from the outputs of the driving cells, so that logic value of the driving cell's output does not</nobr></div>
+<div style="position:absolute;top:3206;left:162"><nobr>a ect the logic value at the receiving cells' inputs. For the sake of simplicity will assume</nobr></div>
+<div style="position:absolute;top:3226;left:162"><nobr>in this paper that there is a single source for each signal. This means that there are no</nobr></div>
+<div style="position:absolute;top:3247;left:162"><nobr>busses or signal lines with multiple tri-stateable drivers are considered. Signal line breaks</nobr></div>
+<div style="position:absolute;top:3267;left:162"><nobr>may exhibit non-logical behavior but for most cases we can probably assume that the line</nobr></div>
+<div style="position:absolute;top:3287;left:162"><nobr>\ oats high" or \ oats low". That is it behaves as a Stuck-at 0/1.</nobr></div>
+<div style="position:absolute;top:3309;left:186"><nobr>We can see from Figure /refline-break that a single defect can break a line that fans out</nobr></div>
+<div style="position:absolute;top:3330;left:162"><nobr>to four gates so that it partitions the gates connected to that node in seven ways/footnoteIf</nobr></div>
+<div style="position:absolute;top:3505;left:658"><nobr>D</nobr></div>
+<div style="position:absolute;top:3370;left:665"><nobr>C</nobr></div>
+<div style="position:absolute;top:3505;left:435"><nobr>B</nobr></div>
+<div style="position:absolute;top:3364;left:442"><nobr>A</nobr></div>
+<div style="position:absolute;top:3611;left:267"><nobr>Figure 2.1: Potential Breaks in Circuit with Fan-out of Four.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:3739;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="4"><b>Page 4</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:3823;left:108"><nobr>2</nobr></div>
+<div style="position:absolute;top:3823;left:550"><nobr>2. The Scope of this Report</nobr></div>
+<div style="position:absolute;top:4055;left:368"><nobr>B</nobr></div>
+<div style="position:absolute;top:3886;left:368"><nobr>A</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:4110;left:50"><nobr>y<font style="font-size:12px">m</font></nobr></div>
+<div style="position:absolute;top:4056;left:50"><nobr>y<font style="font-size:12px">2</font></nobr></div>
+<div style="position:absolute;top:4029;left:50"><nobr>y<font style="font-size:12px">1</font></nobr></div>
+<div style="position:absolute;top:3867;left:50"><nobr>x<font style="font-size:12px">1</font></nobr></div>
+<div style="position:absolute;top:3894;left:50"><nobr>x<font style="font-size:12px">2</font></nobr></div>
+<div style="position:absolute;top:3948;left:50"><nobr>x<font style="font-size:12px">n</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:3906;left:172"><nobr>Cell A</nobr></div>
+<div style="position:absolute;top:4068;left:172"><nobr>Cell B</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:3941;left:482"><nobr>z<font style="font-size:12px">1</font></nobr></div>
+<div style="position:absolute;top:3968;left:482"><nobr>z<font style="font-size:12px">2</font></nobr></div>
+<div style="position:absolute;top:4029;left:469"><nobr>z<font style="font-size:12px">n+m</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:3920;left:793"><nobr>A</nobr></div>
+<div style="position:absolute;top:4007;left:793"><nobr>B</nobr></div>
+<div style="position:absolute;top:3974;left:590"><nobr>Bridge-Cell</nobr></div>
+<div style="position:absolute;top:4150;left:247"><nobr>Figure 2.2: Modeling of Interconnect Bridge Faults.</nobr></div>
+<div style="position:absolute;top:4203;left:108"><nobr>breaks were allowed to occur in the area of the node that splits into parts, there are partitions</nobr></div>
+<div style="position:absolute;top:4224;left:108"><nobr>of the circuit into three pieces.. Assuming that a nodes not connected to the output behave</nobr></div>
+<div style="position:absolute;top:4244;left:108"><nobr>as stuck at 0 or 1, there are 14 single and multiple stuck-at faults that can be caused by a</nobr></div>
+<div style="position:absolute;top:4264;left:108"><nobr>single break causing defect. There are 10 potential single line stuck-at faults for this node.</nobr></div>
+<div style="position:absolute;top:4285;left:108"><nobr>If the topology of the circuit were di erent, for instance if gates A and D were swapped, the</nobr></div>
+<div style="position:absolute;top:4305;left:108"><nobr>potential multiple-line stuck-at faults (MSFs) would change. A defect analysis tool such as</nobr></div>
+<div style="position:absolute;top:4325;left:108"><nobr>VLASIC, FXT or Carafe can determine which multiple stuck-at faults may be caused by a</nobr></div>
+<div style="position:absolute;top:4346;left:108"><nobr>single defect. This allows us to know which multiple stuck-at faults are likely in the circuit.</nobr></div>
+<div style="position:absolute;top:4366;left:108"><nobr>This is much fewer than the set of all possible MSFs and may be feasible for ATPG.</nobr></div>
+<div style="position:absolute;top:4388;left:132"><nobr>Bridges and breaks in the standard cells and breaks in the interconnect were discussed in</nobr></div>
+<div style="position:absolute;top:4409;left:108"><nobr>the previous paragraphs to show the general approach that we advocate for testing ASICs</nobr></div>
+<div style="position:absolute;top:4429;left:108"><nobr>using standard cells, and to give an indication of how these realistic faults may be handled</nobr></div>
+<div style="position:absolute;top:4449;left:108"><nobr>in the framework we are presenting. <font style="font-size:17px">The remainder of this report is concerned with</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:17px;font-family:Times">
+<div style="position:absolute;top:4468;left:108"><nobr>the detection of bridge faults between signal lines connecting the standard cells</nobr></div>
+<div style="position:absolute;top:4488;left:108"><nobr>only.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:4513;left:132"><nobr>Bridges in the interconnect layers are much more common than breaks in the intercon-</nobr></div>
+<div style="position:absolute;top:4533;left:108"><nobr>nect layers for many fabrication processes MTCC87]. As we see in the next section, the</nobr></div>
+<div style="position:absolute;top:4553;left:108"><nobr>behavior of bridges cannot be modeled as a simple wired-or or wired-and. More generally</nobr></div>
+<div style="position:absolute;top:4574;left:108"><nobr>a bridge between the outputs of two cells can be modeled as replacing the two cells with</nobr></div>
+<div style="position:absolute;top:4594;left:108"><nobr>a single bridge-cell implementing the logic function of the bridged node as in Figure 2.2.</nobr></div>
+<div style="position:absolute;top:4614;left:108"><nobr>In the next section we see that for some inputs to the bridge-cell there may be inputs for</nobr></div>
+<div style="position:absolute;top:4634;left:108"><nobr>which the output logic value cannot be determined with certainty.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:4927;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="5"><b>Page 5</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:5011;left:802"><nobr>3</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:5046;left:162"><nobr>3. A System for Detecting Realistic Bridge Faults</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:5109;left:186"><nobr>We have divided the problem of generating test patterns for realistic bridge faults</nobr></div>
+<div style="position:absolute;top:5129;left:162"><nobr>between signal lines into three parts:</nobr></div>
+<div style="position:absolute;top:5151;left:182"><nobr>1. Determine the realistic bridge faults. The program that performs this task is Carafe.</nobr></div>
+<div style="position:absolute;top:5174;left:182"><nobr>2. Find the change in local logical behavior for each fault. The program that performs</nobr></div>
+<div style="position:absolute;top:5195;left:203"><nobr>this task is Bridger.</nobr></div>
+<div style="position:absolute;top:5218;left:182"><nobr>3. Generate tests detecting each change in local logical behavior. The program that</nobr></div>
+<div style="position:absolute;top:5238;left:203"><nobr>performs this task is Nemesis.</nobr></div>
+<div style="position:absolute;top:5258;left:162"><nobr>The interfaces between these programs are shown in Figure 3.1.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:18px;font-family:Times">
+<div style="position:absolute;top:5301;left:162"><nobr>3.1 Carafe</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:5343;left:186"><nobr>A version of Carafe (Circuit and ReAlistic Fault Extractor) is used to nd the probable</nobr></div>
+<div style="position:absolute;top:5363;left:162"><nobr>bridge faults between signal lines in the circuit Jee90]. Carafe determines which bridge</nobr></div>
+<div style="position:absolute;top:5384;left:162"><nobr>faults are possible by simulating the results of spot defects on the physical layout of the</nobr></div>
+<div style="position:absolute;top:5404;left:162"><nobr>circuit. Defects are modeled as changes in the electrical behavior of small spots on the</nobr></div>
+<div style="position:absolute;top:5424;left:162"><nobr>physical layers of the IC. Possible electrical changes for the top metal layer would be the</nobr></div>
+<div style="position:absolute;top:5444;left:162"><nobr>presence of extra metal where there should be no metal, and the absence of metal where</nobr></div>
+<div style="position:absolute;top:5465;left:162"><nobr>there should be metal. If the former happens and the spot of metal \touches" the conducting</nobr></div>
+<div style="position:absolute;top:5485;left:162"><nobr>material of two circuit nodes, a bridge would occur between the nodes. Similarly a spot of</nobr></div>
+<div style="position:absolute;top:5505;left:162"><nobr>missing metal could cause a break in a node. Such a defect in the physical layer could be</nobr></div>
+<div style="position:absolute;top:5525;left:162"><nobr>caused by a particle of dust on the metal mask or in the photoresist used to shape the metal</nobr></div>
+<div style="position:absolute;top:5546;left:162"><nobr>layer. For a more complete description of the determination of realistic faults see FS88].</nobr></div>
+<div style="position:absolute;top:5568;left:186"><nobr>Carafe nds which bridges are possible by considering the range of probable spot defect</nobr></div>
+<div style="position:absolute;top:5588;left:162"><nobr>sizes for each layer being considered and nding all nodes that are within that distance or</nobr></div>
+<div style="position:absolute;top:5609;left:162"><nobr>closer to each other in that layer. These bridges are caused by defects that cause additional</nobr></div>
+<div style="position:absolute;top:5629;left:162"><nobr>conducting material falling between these conductors. It also nds all nodes that can be</nobr></div>
+<div style="position:absolute;top:5649;left:162"><nobr>bridged due to pinholes in the oxide layers. These nodes are on di erent layers such as</nobr></div>
+<div style="position:absolute;top:5669;left:162"><nobr>between metal 1 and metal 2 and they must overlap with only a layer of oxide between</nobr></div>
+<div style="position:absolute;top:5690;left:162"><nobr>them. Carafe takes as input the physical layout of the circuit to determine whether a</nobr></div>
+<div style="position:absolute;top:5710;left:162"><nobr>bridge is likely and to determine how likely the bridge is.</nobr></div>
+<div style="position:absolute;top:5938;left:465"><nobr>Bridger</nobr></div>
+<div style="position:absolute;top:5789;left:749"><nobr>Patterns</nobr></div>
+<div style="position:absolute;top:5762;left:749"><nobr>Test</nobr></div>
+<div style="position:absolute;top:5965;left:243"><nobr>Transconductance</nobr></div>
+<div style="position:absolute;top:5917;left:243"><nobr>Cell Descriptions</nobr></div>
+<div style="position:absolute;top:5870;left:567"><nobr>Fault Formulas</nobr></div>
+<div style="position:absolute;top:5843;left:567"><nobr>Fault Types</nobr></div>
+<div style="position:absolute;top:5796;left:452"><nobr>Faults</nobr></div>
+<div style="position:absolute;top:5742;left:425"><nobr>Circuit Description</nobr></div>
+<div style="position:absolute;top:5796;left:243"><nobr>Defects</nobr></div>
+<div style="position:absolute;top:5742;left:243"><nobr>Layout</nobr></div>
+<div style="position:absolute;top:5769;left:614"><nobr>Nemesis</nobr></div>
+<div style="position:absolute;top:5776;left:330"><nobr>Carafe</nobr></div>
+<div style="position:absolute;top:5987;left:260"><nobr>Figure 3.1: The Carafe-Nemesis Realistic Fault ATPG System</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:6115;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="6"><b>Page 6</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:6199;left:108"><nobr>4</nobr></div>
+<div style="position:absolute;top:6199;left:393"><nobr>3. A System for Detecting Realistic Bridge Faults</nobr></div>
+<div style="position:absolute;top:6242;left:132"><nobr>Test structures can be used to estimate the defect density of many types of spot defects</nobr></div>
+<div style="position:absolute;top:6262;left:108"><nobr>on the IC MTCC87]. Carafe uses this knowledge to estimate the probability that if a</nobr></div>
+<div style="position:absolute;top:6283;left:108"><nobr>bridge fault occurs, how likely it is. One of Carafe's inputs is a le that describes the</nobr></div>
+<div style="position:absolute;top:6303;left:108"><nobr>defect density and the distribution of defect sizes for each layer. Carafe determines the</nobr></div>
+<div style="position:absolute;top:6323;left:108"><nobr>probability of each realistic bridge fault for each size defect. By weighing the results of the</nobr></div>
+<div style="position:absolute;top:6344;left:108"><nobr>probability distribution function of defect sizes and summing them, Carafe determines the</nobr></div>
+<div style="position:absolute;top:6364;left:108"><nobr>relative number of times each bridge fault should occur.</nobr></div>
+<div style="position:absolute;top:6386;left:132"><nobr>Normally Carafe attens the layout to the transistor-level and describes the faults at</nobr></div>
+<div style="position:absolute;top:6407;left:108"><nobr>the circuit-node level. A second version of Carafe was written that presents the circuit</nobr></div>
+<div style="position:absolute;top:6427;left:108"><nobr>and faults at the logic-gate level for this research. This version of Carafe requires that the</nobr></div>
+<div style="position:absolute;top:6448;left:108"><nobr>physical layout of the circuit be presented hierarchically with the two levels of hierarchy</nobr></div>
+<div style="position:absolute;top:6468;left:108"><nobr>being the cells and the interconnect between the cells. In addition to providing the weighted</nobr></div>
+<div style="position:absolute;top:6488;left:108"><nobr>fault list, this version of Carafe provides a gate level netlist for Nemesis and a list of fault</nobr></div>
+<div style="position:absolute;top:6509;left:108"><nobr>types to Bridger. To evaluate Carafe's performance we ran it on the ISCAS-85 benchmark</nobr></div>
+<div style="position:absolute;top:6529;left:108"><nobr>circuits collected by Brglez and Fujiwara BF85]. The standard-cell layouts we used for the</nobr></div>
+<div style="position:absolute;top:6549;left:108"><nobr>circuits were provided by MCNC. This version of Carafe's performance at extracting the</nobr></div>
+<div style="position:absolute;top:6570;left:108"><nobr>realistic bridging faults of the MCNC cells on a Sparcstation 1+ is shown in Table 3.1.</nobr></div>
+<div style="position:absolute;top:6608;left:122"><nobr>Circuit C432 C499 C880 C1355 C1908 C2670 C3540 C5315 C6288 C7552</nobr></div>
+<div style="position:absolute;top:6633;left:132"><nobr>faults 1546 2747 3227</nobr></div>
+<div style="position:absolute;top:6633;left:371"><nobr>4356</nobr></div>
+<div style="position:absolute;top:6633;left:435"><nobr>4669 13589 16316 40143 21475 53439</nobr></div>
+<div style="position:absolute;top:6654;left:118"><nobr>seconds</nobr></div>
+<div style="position:absolute;top:6654;left:199"><nobr>10.5</nobr></div>
+<div style="position:absolute;top:6654;left:255"><nobr>24.7</nobr></div>
+<div style="position:absolute;top:6654;left:311"><nobr>33.4</nobr></div>
+<div style="position:absolute;top:6654;left:375"><nobr>50.1</nobr></div>
+<div style="position:absolute;top:6654;left:439"><nobr>63.2</nobr></div>
+<div style="position:absolute;top:6654;left:495"><nobr>404.5</nobr></div>
+<div style="position:absolute;top:6654;left:559"><nobr>621.1</nobr></div>
+<div style="position:absolute;top:6654;left:628"><nobr>3326</nobr></div>
+<div style="position:absolute;top:6654;left:700"><nobr>921</nobr></div>
+<div style="position:absolute;top:6654;left:756"><nobr>5687</nobr></div>
+<div style="position:absolute;top:6702;left:150"><nobr>Table 3.1: Bridge fault extraction statistics for ISCAS-85 circuits using Carafe</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:18px;font-family:Times">
+<div style="position:absolute;top:6781;left:108"><nobr>3.2 Bridger</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:6823;left:132"><nobr>An example of how a simple wired{or or wired{and model does not accurately model a</nobr></div>
+<div style="position:absolute;top:6843;left:108"><nobr>CMOS bridge is shown in Figure 3.2. The logic function caused by the bridge faults was</nobr></div>
+<div style="position:absolute;top:6863;left:108"><nobr>obtained using a Spice simulation. The gure shows that two PMOS transistors in parallel</nobr></div>
+<div style="position:absolute;top:6884;left:108"><nobr>are stronger than the NMOS transistors in series for NAND gates in the CMOS3 standard</nobr></div>
+<div style="position:absolute;top:6904;left:108"><nobr>cell library Hei88], but a single PMOS transistor is not. Note that the transistor strength</nobr></div>
+<div style="position:absolute;top:6925;left:108"><nobr>model used in the COSMOS fault simulator cannot model this fault correctly by assigning</nobr></div>
+<div style="position:absolute;top:6945;left:108"><nobr>any combination of strengths to the eight transistors.</nobr></div>
+<div style="position:absolute;top:6968;left:132"><nobr>Bridger uses the resistive model for conducting transistors that was suggested by Acken</nobr></div>
+<div style="position:absolute;top:6988;left:113"><nobr>Ack88] and later by Storey SM90]. In experiments comparing the results of Spice simula-</nobr></div>
+<div style="position:absolute;top:7008;left:108"><nobr>tions and Bridger, we found that if Bridger predicted the voltage at the bridged signals to be</nobr></div>
+<div style="position:absolute;top:7029;left:108"><nobr>less than 2.0 Volts, Spice always predicted less than the logic threshold, and if Bridger pre-</nobr></div>
+<div style="position:absolute;top:7049;left:108"><nobr>dicted greater than 3.0 Volts, Spice predicted greater than the logic threshold. If Bridger's</nobr></div>
+<div style="position:absolute;top:7069;left:108"><nobr>prediction was between 2.0 and 3.0 Volts, Spice would sometimes predict a di erent logical</nobr></div>
+<div style="position:absolute;top:7090;left:108"><nobr>value than Bridger. We use voltage thresholds such that a logic 0 is anything between 0.0</nobr></div>
+<div style="position:absolute;top:7110;left:108"><nobr>and 2.0 Volts and a logic 1 is anything between 3.0 and 5.0 Volts: any more relaxed thresh-</nobr></div>
+<div style="position:absolute;top:7130;left:108"><nobr>olds may lead to incorrect logic values.</nobr></div>
+<div style="position:absolute;top:7153;left:132"><nobr>For comparison with the strict threshold values detailed above, consider relaxed thresh-</nobr></div>
+<div style="position:absolute;top:7173;left:108"><nobr>olds where voltages in the range 0.0 to 2.5 Volts is a logic 0 and voltages in the range</nobr></div>
+<div style="position:absolute;top:7194;left:108"><nobr>2.5 to 5.0 Volts is a logic 1. Some faults that are detectable with the relaxed threshold</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:7303;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="7"><b>Page 7</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:7387;left:162"><nobr>3.3. Nemesis</nobr></div>
+<div style="position:absolute;top:7387;left:802"><nobr>5</nobr></div>
+<div style="position:absolute;top:7447;left:179"><nobr>A</nobr></div>
+<div style="position:absolute;top:7515;left:220"><nobr>B</nobr></div>
+<div style="position:absolute;top:7556;left:220"><nobr>A</nobr></div>
+<div style="position:absolute;top:7661;left:183"><nobr>C</nobr></div>
+<div style="position:absolute;top:7722;left:226"><nobr>D</nobr></div>
+<div style="position:absolute;top:7765;left:231"><nobr>C</nobr></div>
+<div style="position:absolute;top:7468;left:413"><nobr>E</nobr></div>
+<div style="position:absolute;top:7675;left:413"><nobr>F</nobr></div>
+<div style="position:absolute;top:7496;left:543"><nobr>Truth Table entries for E <font style="font-size:10px">6</font>= F</nobr></div>
+<div style="position:absolute;top:7536;left:529"><nobr>ABCD EF Wired-And Wired-Or Spice</nobr></div>
+<div style="position:absolute;top:7563;left:529"><nobr>0111</nobr></div>
+<div style="position:absolute;top:7590;left:529"><nobr>1011</nobr></div>
+<div style="position:absolute;top:7617;left:529"><nobr>0011</nobr></div>
+<div style="position:absolute;top:7644;left:529"><nobr>1101</nobr></div>
+<div style="position:absolute;top:7671;left:529"><nobr>1110</nobr></div>
+<div style="position:absolute;top:7698;left:529"><nobr>1100</nobr></div>
+<div style="position:absolute;top:7563;left:583"><nobr>10</nobr></div>
+<div style="position:absolute;top:7590;left:583"><nobr>10</nobr></div>
+<div style="position:absolute;top:7617;left:583"><nobr>10</nobr></div>
+<div style="position:absolute;top:7644;left:583"><nobr>01</nobr></div>
+<div style="position:absolute;top:7671;left:583"><nobr>01</nobr></div>
+<div style="position:absolute;top:7698;left:583"><nobr>01</nobr></div>
+<div style="position:absolute;top:7563;left:651"><nobr>0</nobr></div>
+<div style="position:absolute;top:7563;left:725"><nobr>1</nobr></div>
+<div style="position:absolute;top:7590;left:651"><nobr>0</nobr></div>
+<div style="position:absolute;top:7617;left:651"><nobr>0</nobr></div>
+<div style="position:absolute;top:7644;left:651"><nobr>0</nobr></div>
+<div style="position:absolute;top:7671;left:651"><nobr>0</nobr></div>
+<div style="position:absolute;top:7698;left:651"><nobr>0</nobr></div>
+<div style="position:absolute;top:7590;left:725"><nobr>1</nobr></div>
+<div style="position:absolute;top:7617;left:725"><nobr>1</nobr></div>
+<div style="position:absolute;top:7644;left:725"><nobr>1</nobr></div>
+<div style="position:absolute;top:7671;left:725"><nobr>1</nobr></div>
+<div style="position:absolute;top:7698;left:725"><nobr>1</nobr></div>
+<div style="position:absolute;top:7617;left:792"><nobr>1</nobr></div>
+<div style="position:absolute;top:7698;left:792"><nobr>1</nobr></div>
+<div style="position:absolute;top:7671;left:792"><nobr>0</nobr></div>
+<div style="position:absolute;top:7644;left:792"><nobr>0</nobr></div>
+<div style="position:absolute;top:7590;left:792"><nobr>0</nobr></div>
+<div style="position:absolute;top:7563;left:792"><nobr>0</nobr></div>
+<div style="position:absolute;top:7818;left:217"><nobr>Figure 3.2: Logic Function of Bridge Fault in CMOS3 NANDs using Spice.</nobr></div>
+<div style="position:absolute;top:7873;left:162"><nobr>are undetectable with the restricted thresholds. Table 3.2 shows the di erent numbers and</nobr></div>
+<div style="position:absolute;top:7893;left:162"><nobr>percentages of an arti cially constructed fault set (where each wire was bridged to the ve</nobr></div>
+<div style="position:absolute;top:7914;left:162"><nobr>wires directly following in the wirelist) that are detected by our complete SSF test set.</nobr></div>
+<div style="position:absolute;top:7934;left:162"><nobr>The second and third rows of the table show the number of bridge faults detected by the</nobr></div>
+<div style="position:absolute;top:7954;left:162"><nobr>complete SSF test using the di erent thresholds, and the last two lines show the percentage</nobr></div>
+<div style="position:absolute;top:7974;left:162"><nobr>of detectable, non-feedback bridge faults (total bridge faults minus faults pruned due to</nobr></div>
+<div style="position:absolute;top:7995;left:162"><nobr>feedback and faults declared untestable given the fault table for the given threshold) that</nobr></div>
+<div style="position:absolute;top:8015;left:162"><nobr>are detected by the complete SSF test set.</nobr></div>
+<div style="position:absolute;top:8054;left:182"><nobr>Circuit</nobr></div>
+<div style="position:absolute;top:8054;left:262"><nobr>C499 C880 C1355 C1908 C2670 C3540 C5315 C6288 C7552</nobr></div>
+<div style="position:absolute;top:8080;left:188"><nobr>strict</nobr></div>
+<div style="position:absolute;top:8080;left:274"><nobr>902 1811</nobr></div>
+<div style="position:absolute;top:8080;left:394"><nobr>980</nobr></div>
+<div style="position:absolute;top:8080;left:450"><nobr>3846</nobr></div>
+<div style="position:absolute;top:8080;left:514"><nobr>5153</nobr></div>
+<div style="position:absolute;top:8080;left:578"><nobr>7464 10597 11846 15534</nobr></div>
+<div style="position:absolute;top:8100;left:181"><nobr>relaxed</nobr></div>
+<div style="position:absolute;top:8100;left:274"><nobr>902 1857</nobr></div>
+<div style="position:absolute;top:8100;left:386"><nobr>1537</nobr></div>
+<div style="position:absolute;top:8100;left:450"><nobr>4150</nobr></div>
+<div style="position:absolute;top:8100;left:514"><nobr>5517</nobr></div>
+<div style="position:absolute;top:8100;left:578"><nobr>7784 11102 11846 17078</nobr></div>
+<div style="position:absolute;top:8126;left:179"><nobr>% strict</nobr></div>
+<div style="position:absolute;top:8126;left:269"><nobr>99.9</nobr></div>
+<div style="position:absolute;top:8126;left:325"><nobr>98.6</nobr></div>
+<div style="position:absolute;top:8126;left:389"><nobr>66.8</nobr></div>
+<div style="position:absolute;top:8126;left:453"><nobr>96.3</nobr></div>
+<div style="position:absolute;top:8126;left:518"><nobr>95.9</nobr></div>
+<div style="position:absolute;top:8126;left:582"><nobr>98.2</nobr></div>
+<div style="position:absolute;top:8126;left:646"><nobr>98.2</nobr></div>
+<div style="position:absolute;top:8126;left:715"><nobr>100</nobr></div>
+<div style="position:absolute;top:8126;left:774"><nobr>96.0</nobr></div>
+<div style="position:absolute;top:8147;left:172"><nobr>% relaxed</nobr></div>
+<div style="position:absolute;top:8147;left:269"><nobr>99.9</nobr></div>
+<div style="position:absolute;top:8147;left:325"><nobr>99.6</nobr></div>
+<div style="position:absolute;top:8147;left:389"><nobr>99.9</nobr></div>
+<div style="position:absolute;top:8147;left:453"><nobr>99.7</nobr></div>
+<div style="position:absolute;top:8147;left:518"><nobr>98.0</nobr></div>
+<div style="position:absolute;top:8147;left:582"><nobr>99.5</nobr></div>
+<div style="position:absolute;top:8147;left:646"><nobr>99.3</nobr></div>
+<div style="position:absolute;top:8147;left:715"><nobr>100</nobr></div>
+<div style="position:absolute;top:8147;left:774"><nobr>99.2</nobr></div>
+<div style="position:absolute;top:8195;left:194"><nobr>Table 3.2: Randomly selected bridge faults covered by complete single stuck-at</nobr></div>
+<div style="position:absolute;top:8215;left:194"><nobr>test set with strict and relaxed logic thresholds</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:18px;font-family:Times">
+<div style="position:absolute;top:8297;left:162"><nobr>3.3 Nemesis</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:8341;left:186"><nobr>Nemesis was originally an ATPG system for single stuck-at faults Lar89]. It has been</nobr></div>
+<div style="position:absolute;top:8361;left:162"><nobr>modi ed to take as input the AND-OR-INVERT cells in the MCNC standard cell library</nobr></div>
+<div style="position:absolute;top:8382;left:162"><nobr>and to generate tests for the faults identi ed by Carafe and characterized by Bridger.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:8491;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="8"><b>Page 8</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:8575;left:108"><nobr>6</nobr></div>
+<div style="position:absolute;top:8575;left:393"><nobr>3. A System for Detecting Realistic Bridge Faults</nobr></div>
+<div style="position:absolute;top:8618;left:108"><nobr>Nemesis generates a test pattern for a given fault in two steps: First, it constructs a</nobr></div>
+<div style="position:absolute;top:8638;left:108"><nobr>formula representing all possible tests for the fault. Second, it applies a Boolean satis ability</nobr></div>
+<div style="position:absolute;top:8658;left:108"><nobr>algorithm to nd a solution to the resulting formula. Any solution for the formula is a test</nobr></div>
+<div style="position:absolute;top:8679;left:108"><nobr>that detects the fault Lar92]. In order to generate tests for bridge faults, three routines were</nobr></div>
+<div style="position:absolute;top:8699;left:108"><nobr>added to Nemesis and three routines were modi ed in Nemesis. The additional routines</nobr></div>
+<div style="position:absolute;top:8719;left:108"><nobr>check for feedback when two wires are bridged, parse the list of fault types and faulted</nobr></div>
+<div style="position:absolute;top:8740;left:108"><nobr>behaviors generated by Bridger, and parse the list of probable bridge faults generated by</nobr></div>
+<div style="position:absolute;top:8760;left:108"><nobr>Carafe. The wirelist parser was modi ed to read wirelists generated by Carafe, and the</nobr></div>
+<div style="position:absolute;top:8780;left:108"><nobr>simulator and formula extractor were modi ed so that they could simulate and extract</nobr></div>
+<div style="position:absolute;top:8801;left:108"><nobr>formulas for bridge faults according to the constraints set by Bridger.</nobr></div>
+<div style="position:absolute;top:8823;left:132"><nobr>To evaluate Nemesis's generation of test patterns for bridge faults we have compared it</nobr></div>
+<div style="position:absolute;top:8843;left:108"><nobr>with Nemesis's performance when generating test patterns for single stuck-at faults for the</nobr></div>
+<div style="position:absolute;top:8863;left:108"><nobr>MCNC generated circuits. Table 3.3 shows the performance of the single stuck-at Nemesis</nobr></div>
+<div style="position:absolute;top:8884;left:108"><nobr>standard-cell system. All times are taken with the program running on a Sparcstation 1.</nobr></div>
+<div style="position:absolute;top:8904;left:108"><nobr>For comparison with the following tables, the results in Table 3.3 do not include global</nobr></div>
+<div style="position:absolute;top:8924;left:108"><nobr>implications (learning). The \Untestable" row shows the number of SSFs that were proven</nobr></div>
+<div style="position:absolute;top:8945;left:108"><nobr>untestable by Nemeis, the \Aborted" row shows those faults that no test pattern was</nobr></div>
+<div style="position:absolute;top:8965;left:108"><nobr>generated for and were not proven untestable, and the \Seconds" row shows Nemesis's</nobr></div>
+<div style="position:absolute;top:8985;left:108"><nobr>ATPG time.</nobr></div>
+<div style="position:absolute;top:9019;left:133"><nobr>Circuit</nobr></div>
+<div style="position:absolute;top:9019;left:217"><nobr>C432 499 C880 C1355 C1908 C2670 C3540 C5315 C6288 C7552</nobr></div>
+<div style="position:absolute;top:9044;left:118"><nobr>SSA Faults</nobr></div>
+<div style="position:absolute;top:9044;left:229"><nobr>826 974 1308</nobr></div>
+<div style="position:absolute;top:9044;left:385"><nobr>2430</nobr></div>
+<div style="position:absolute;top:9044;left:450"><nobr>1746</nobr></div>
+<div style="position:absolute;top:9044;left:514"><nobr>3176</nobr></div>
+<div style="position:absolute;top:9044;left:578"><nobr>4522</nobr></div>
+<div style="position:absolute;top:9044;left:642"><nobr>7022 11500</nobr></div>
+<div style="position:absolute;top:9044;left:770"><nobr>8506</nobr></div>
+<div style="position:absolute;top:9065;left:120"><nobr>Untestable</nobr></div>
+<div style="position:absolute;top:9065;left:246"><nobr>9</nobr></div>
+<div style="position:absolute;top:9065;left:290"><nobr>8</nobr></div>
+<div style="position:absolute;top:9065;left:346"><nobr>0</nobr></div>
+<div style="position:absolute;top:9065;left:410"><nobr>8</nobr></div>
+<div style="position:absolute;top:9065;left:474"><nobr>9</nobr></div>
+<div style="position:absolute;top:9065;left:530"><nobr>78</nobr></div>
+<div style="position:absolute;top:9065;left:586"><nobr>119</nobr></div>
+<div style="position:absolute;top:9065;left:658"><nobr>59</nobr></div>
+<div style="position:absolute;top:9065;left:723"><nobr>55</nobr></div>
+<div style="position:absolute;top:9065;left:787"><nobr>57</nobr></div>
+<div style="position:absolute;top:9086;left:128"><nobr>Aborted</nobr></div>
+<div style="position:absolute;top:9086;left:246"><nobr>7</nobr></div>
+<div style="position:absolute;top:9086;left:290"><nobr>0</nobr></div>
+<div style="position:absolute;top:9086;left:346"><nobr>0</nobr></div>
+<div style="position:absolute;top:9086;left:410"><nobr>0</nobr></div>
+<div style="position:absolute;top:9086;left:474"><nobr>0</nobr></div>
+<div style="position:absolute;top:9086;left:530"><nobr>14</nobr></div>
+<div style="position:absolute;top:9086;left:602"><nobr>0</nobr></div>
+<div style="position:absolute;top:9086;left:667"><nobr>2</nobr></div>
+<div style="position:absolute;top:9086;left:731"><nobr>0</nobr></div>
+<div style="position:absolute;top:9086;left:787"><nobr>60</nobr></div>
+<div style="position:absolute;top:9111;left:127"><nobr>Patterns</nobr></div>
+<div style="position:absolute;top:9111;left:237"><nobr>53</nobr></div>
+<div style="position:absolute;top:9111;left:282"><nobr>54</nobr></div>
+<div style="position:absolute;top:9111;left:338"><nobr>66</nobr></div>
+<div style="position:absolute;top:9111;left:402"><nobr>87</nobr></div>
+<div style="position:absolute;top:9111;left:458"><nobr>109</nobr></div>
+<div style="position:absolute;top:9111;left:522"><nobr>120</nobr></div>
+<div style="position:absolute;top:9111;left:586"><nobr>163</nobr></div>
+<div style="position:absolute;top:9111;left:650"><nobr>147</nobr></div>
+<div style="position:absolute;top:9111;left:723"><nobr>39</nobr></div>
+<div style="position:absolute;top:9111;left:779"><nobr>209</nobr></div>
+<div style="position:absolute;top:9136;left:130"><nobr>Seconds</nobr></div>
+<div style="position:absolute;top:9136;left:225"><nobr>21.0 5.9</nobr></div>
+<div style="position:absolute;top:9136;left:325"><nobr>23.1</nobr></div>
+<div style="position:absolute;top:9136;left:389"><nobr>36.6</nobr></div>
+<div style="position:absolute;top:9136;left:453"><nobr>37.2</nobr></div>
+<div style="position:absolute;top:9136;left:509"><nobr>257.3</nobr></div>
+<div style="position:absolute;top:9136;left:573"><nobr>125.9</nobr></div>
+<div style="position:absolute;top:9136;left:638"><nobr>109.4</nobr></div>
+<div style="position:absolute;top:9136;left:702"><nobr>263.8</nobr></div>
+<div style="position:absolute;top:9136;left:766"><nobr>466.0</nobr></div>
+<div style="position:absolute;top:9185;left:191"><nobr>Table 3.3: Nemesis test pattern generation single stuck-at statistics</nobr></div>
+<div style="position:absolute;top:9243;left:132"><nobr>Table 3.4 shows how extracted faults were pruned from the fault list before being sent</nobr></div>
+<div style="position:absolute;top:9263;left:108"><nobr>to the ATPG part of the system. The row labeled \Total Faults" is the total number</nobr></div>
+<div style="position:absolute;top:9284;left:108"><nobr>of faults generated by Carafe. Many gates, when bridged together, produce a voltage in</nobr></div>
+<div style="position:absolute;top:9304;left:108"><nobr>the range that is not clearly a logic 0 or logic 1, 2.0 to 3.0 Volts, for all possible inputs</nobr></div>
+<div style="position:absolute;top:9324;left:108"><nobr>except the inputs that produce a logic 1 on both gates or a logic 0 on both gates. An</nobr></div>
+<div style="position:absolute;top:9345;left:108"><nobr>example of this would be a bridge fault between two inverters if the inverters' PMOS and</nobr></div>
+<div style="position:absolute;top:9365;left:108"><nobr>NMOS transistors have equal strength. The row labeled \Removed { Untestable" shows</nobr></div>
+<div style="position:absolute;top:9385;left:108"><nobr>the number of faults that are determined untestable by Bridger. These were discarded from</nobr></div>
+<div style="position:absolute;top:9405;left:108"><nobr>the fault list before ATPG. The row labeled \Removed { Feedback" shows the number of</nobr></div>
+<div style="position:absolute;top:9426;left:108"><nobr>bridges that introduced feedback to the system. These were removed from the fault list in</nobr></div>
+<div style="position:absolute;top:9446;left:108"><nobr>this version of the system because such faults may introduce state to the circuit and are</nobr></div>
+<div style="position:absolute;top:9466;left:108"><nobr>more di cult to test.</nobr></div>
+<div style="position:absolute;top:9489;left:132"><nobr>Table 3.5 shows the performance of the ATPG part of the system. The rst row shows</nobr></div>
+<div style="position:absolute;top:9509;left:108"><nobr>the number of bridging faults that are considered. The second line is the number of realistic</nobr></div>
+<div style="position:absolute;top:9529;left:108"><nobr>bridge faults that were detected by the complete SSF test set presented earlier. The third</nobr></div>
+<div style="position:absolute;top:9549;left:108"><nobr>line shows the number of realistic bridge faults that our Nemesis-based ATPG system</nobr></div>
+<div style="position:absolute;top:9570;left:108"><nobr>detects. The last three lines give the number of bridge faults that are proven untestable,</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:9679;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="9"><b>Page 9</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:9763;left:162"><nobr>3.3. Nemesis</nobr></div>
+<div style="position:absolute;top:9763;left:802"><nobr>7</nobr></div>
+<div style="position:absolute;top:9806;left:245"><nobr>Circuit</nobr></div>
+<div style="position:absolute;top:9806;left:370"><nobr>C432 C499 C880 C1355 C1908 C2670 C3540</nobr></div>
+<div style="position:absolute;top:9831;left:226"><nobr>Total Faults</nobr></div>
+<div style="position:absolute;top:9831;left:373"><nobr>1546 2747 3227</nobr></div>
+<div style="position:absolute;top:9831;left:550"><nobr>4356</nobr></div>
+<div style="position:absolute;top:9831;left:614"><nobr>4669 13,589 16,316</nobr></div>
+<div style="position:absolute;top:9852;left:189"><nobr>Removed { Untestable</nobr></div>
+<div style="position:absolute;top:9852;left:382"><nobr>727 1672 2106</nobr></div>
+<div style="position:absolute;top:9852;left:550"><nobr>1745</nobr></div>
+<div style="position:absolute;top:9852;left:614"><nobr>2094</nobr></div>
+<div style="position:absolute;top:9852;left:679"><nobr>9116</nobr></div>
+<div style="position:absolute;top:9852;left:744"><nobr>6295</nobr></div>
+<div style="position:absolute;top:9873;left:195"><nobr>Removed { Feedback</nobr></div>
+<div style="position:absolute;top:9873;left:382"><nobr>616</nobr></div>
+<div style="position:absolute;top:9873;left:438"><nobr>479</nobr></div>
+<div style="position:absolute;top:9873;left:494"><nobr>322</nobr></div>
+<div style="position:absolute;top:9873;left:550"><nobr>1154</nobr></div>
+<div style="position:absolute;top:9873;left:622"><nobr>953</nobr></div>
+<div style="position:absolute;top:9873;left:687"><nobr>915</nobr></div>
+<div style="position:absolute;top:9873;left:744"><nobr>2466</nobr></div>
+<div style="position:absolute;top:9894;left:218"><nobr>Sent to ATPG</nobr></div>
+<div style="position:absolute;top:9894;left:382"><nobr>203</nobr></div>
+<div style="position:absolute;top:9894;left:438"><nobr>596</nobr></div>
+<div style="position:absolute;top:9894;left:494"><nobr>799</nobr></div>
+<div style="position:absolute;top:9894;left:550"><nobr>1457</nobr></div>
+<div style="position:absolute;top:9894;left:614"><nobr>1622</nobr></div>
+<div style="position:absolute;top:9894;left:679"><nobr>3558</nobr></div>
+<div style="position:absolute;top:9894;left:744"><nobr>7555</nobr></div>
+<div style="position:absolute;top:9930;left:355"><nobr>Table 3.4: Pre-ATPG fault statistics</nobr></div>
+<div style="position:absolute;top:9980;left:162"><nobr>the number of faults that were aborted by the ATPG program, the number of tests that</nobr></div>
+<div style="position:absolute;top:10000;left:162"><nobr>detect all bridging faults, and the time in seconds to completely process each circuit.</nobr></div>
+<div style="position:absolute;top:10038;left:244"><nobr>Circuit</nobr></div>
+<div style="position:absolute;top:10038;left:334"><nobr>C432 C499 C880 C1355 C1908 C2670 C3540</nobr></div>
+<div style="position:absolute;top:10063;left:247"><nobr>Faults</nobr></div>
+<div style="position:absolute;top:10063;left:345"><nobr>203</nobr></div>
+<div style="position:absolute;top:10063;left:401"><nobr>596</nobr></div>
+<div style="position:absolute;top:10063;left:457"><nobr>799</nobr></div>
+<div style="position:absolute;top:10063;left:514"><nobr>1457</nobr></div>
+<div style="position:absolute;top:10063;left:579"><nobr>1622</nobr></div>
+<div style="position:absolute;top:10063;left:644"><nobr>3558</nobr></div>
+<div style="position:absolute;top:10063;left:708"><nobr>7555</nobr></div>
+<div style="position:absolute;top:10084;left:225"><nobr>SSA covered</nobr></div>
+<div style="position:absolute;top:10084;left:345"><nobr>141</nobr></div>
+<div style="position:absolute;top:10084;left:401"><nobr>550</nobr></div>
+<div style="position:absolute;top:10084;left:457"><nobr>703</nobr></div>
+<div style="position:absolute;top:10084;left:514"><nobr>1025</nobr></div>
+<div style="position:absolute;top:10084;left:579"><nobr>1238</nobr></div>
+<div style="position:absolute;top:10084;left:644"><nobr>2291</nobr></div>
+<div style="position:absolute;top:10084;left:708"><nobr>6566</nobr></div>
+<div style="position:absolute;top:10105;left:240"><nobr>Covered</nobr></div>
+<div style="position:absolute;top:10105;left:345"><nobr>164</nobr></div>
+<div style="position:absolute;top:10105;left:401"><nobr>562</nobr></div>
+<div style="position:absolute;top:10105;left:457"><nobr>733</nobr></div>
+<div style="position:absolute;top:10105;left:514"><nobr>1058</nobr></div>
+<div style="position:absolute;top:10105;left:579"><nobr>1334</nobr></div>
+<div style="position:absolute;top:10105;left:644"><nobr>2474</nobr></div>
+<div style="position:absolute;top:10105;left:708"><nobr>6749</nobr></div>
+<div style="position:absolute;top:10126;left:231"><nobr>Untestable</nobr></div>
+<div style="position:absolute;top:10126;left:354"><nobr>38</nobr></div>
+<div style="position:absolute;top:10126;left:410"><nobr>34</nobr></div>
+<div style="position:absolute;top:10126;left:465"><nobr>65</nobr></div>
+<div style="position:absolute;top:10126;left:522"><nobr>238</nobr></div>
+<div style="position:absolute;top:10126;left:587"><nobr>286</nobr></div>
+<div style="position:absolute;top:10126;left:644"><nobr>1013</nobr></div>
+<div style="position:absolute;top:10126;left:717"><nobr>779</nobr></div>
+<div style="position:absolute;top:10147;left:240"><nobr>Aborted</nobr></div>
+<div style="position:absolute;top:10147;left:362"><nobr>1</nobr></div>
+<div style="position:absolute;top:10147;left:418"><nobr>0</nobr></div>
+<div style="position:absolute;top:10147;left:474"><nobr>1</nobr></div>
+<div style="position:absolute;top:10147;left:522"><nobr>161</nobr></div>
+<div style="position:absolute;top:10147;left:603"><nobr>2</nobr></div>
+<div style="position:absolute;top:10147;left:660"><nobr>71</nobr></div>
+<div style="position:absolute;top:10147;left:725"><nobr>27</nobr></div>
+<div style="position:absolute;top:10168;left:239"><nobr>Patterns</nobr></div>
+<div style="position:absolute;top:10168;left:354"><nobr>64</nobr></div>
+<div style="position:absolute;top:10168;left:410"><nobr>59</nobr></div>
+<div style="position:absolute;top:10168;left:457"><nobr>102</nobr></div>
+<div style="position:absolute;top:10168;left:531"><nobr>86</nobr></div>
+<div style="position:absolute;top:10168;left:587"><nobr>167</nobr></div>
+<div style="position:absolute;top:10168;left:652"><nobr>238</nobr></div>
+<div style="position:absolute;top:10168;left:717"><nobr>326</nobr></div>
+<div style="position:absolute;top:10193;left:231"><nobr>time (secs)</nobr></div>
+<div style="position:absolute;top:10193;left:341"><nobr>54.9</nobr></div>
+<div style="position:absolute;top:10193;left:397"><nobr>35.6</nobr></div>
+<div style="position:absolute;top:10193;left:453"><nobr>70.5 7500.8</nobr></div>
+<div style="position:absolute;top:10193;left:574"><nobr>286.9 2420.8 3101.0</nobr></div>
+<div style="position:absolute;top:10233;left:254"><nobr>Table 3.5: Nemesis test pattern generation bridge-fault statistics</nobr></div>
+<div style="position:absolute;top:10289;left:186"><nobr>The three largest circuits are not included in Tables 3.4 and 3.3 because the formulas</nobr></div>
+<div style="position:absolute;top:10309;left:162"><nobr>to be satis ed for these circuits with bridge faults are too large for our workstations. Two</nobr></div>
+<div style="position:absolute;top:10330;left:162"><nobr>things can be observed from Tables 3.3 through 3.5. The rst is that this system detects</nobr></div>
+<div style="position:absolute;top:10350;left:162"><nobr>many of the realistic bridging faults that are not detected by the SSA generated tests. The</nobr></div>
+<div style="position:absolute;top:10370;left:162"><nobr>additional computation e ort results in a considerable increase in realistic fault coverage.</nobr></div>
+<div style="position:absolute;top:10390;left:162"><nobr>One also notices that the ATPG times for the bridging faults is much greater than one</nobr></div>
+<div style="position:absolute;top:10411;left:162"><nobr>would expect. Why this is is not yet understood.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:10867;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="10"><b>Page 10</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:10951;left:108"><nobr>8</nobr></div>
+<div style="position:absolute;top:10951;left:517"><nobr>4. Conclusions and Future Work</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:10986;left:108"><nobr>4. Conclusions and Future Work</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:11049;left:132"><nobr>We have presented an approach that allows one to make use of technology- and layout-</nobr></div>
+<div style="position:absolute;top:11069;left:108"><nobr>speci c realistic faults, which more accurately model faulty circuits generated from standard</nobr></div>
+<div style="position:absolute;top:11090;left:108"><nobr>cell libraries, without sacri cing the advantages of fault simulation and ATPG at the logic-</nobr></div>
+<div style="position:absolute;top:11110;left:108"><nobr>gate level. This is done by partitioning the set of faults into three main categories, intra-cell</nobr></div>
+<div style="position:absolute;top:11130;left:108"><nobr>faults, bridges in the interconnect, and breaks in the interconnect, and applying the most</nobr></div>
+<div style="position:absolute;top:11151;left:108"><nobr>appropriate fault modeling and test pattern generation techniques for each category.</nobr></div>
+<div style="position:absolute;top:11173;left:132"><nobr>Existing software have been modi ed to nd the realistic bridge faults between inter-</nobr></div>
+<div style="position:absolute;top:11193;left:108"><nobr>connects, determine the resulting change in logical behavior caused by the bridge, and fault</nobr></div>
+<div style="position:absolute;top:11214;left:108"><nobr>simulate and generate tests for them at the gate level. The exercise of integrating this soft-</nobr></div>
+<div style="position:absolute;top:11234;left:108"><nobr>ware to generate tests for realistic faults at the logic gate level shows that it can be done,</nobr></div>
+<div style="position:absolute;top:11254;left:108"><nobr>and pinpoints and helps quantify the problems with this approach. The biggest problem</nobr></div>
+<div style="position:absolute;top:11275;left:108"><nobr>that has appeared is the number of faults. There are two to six times more bridge faults in</nobr></div>
+<div style="position:absolute;top:11295;left:108"><nobr>the interconnect than there are single stuck-at faults. ATPG time increased by factors of</nobr></div>
+<div style="position:absolute;top:11315;left:108"><nobr>two to twenty. Some of the slowdown is attributable to increased faults, but much is due to</nobr></div>
+<div style="position:absolute;top:11335;left:108"><nobr>Nemesis's di culty with the more complicated formulas. We are investigating modi cations</nobr></div>
+<div style="position:absolute;top:11356;left:108"><nobr>to Nemesis to make it more suited to dealing with formulas from large cells. The number</nobr></div>
+<div style="position:absolute;top:11376;left:108"><nobr>of bridge faults we generate tests for can be reduced by considering only the most likely</nobr></div>
+<div style="position:absolute;top:11397;left:108"><nobr>bridge faults. Carafe can provide this information.</nobr></div>
+<div style="position:absolute;top:11419;left:132"><nobr>A side-product of integrating the software is the veri cation that many detectable</nobr></div>
+<div style="position:absolute;top:11439;left:108"><nobr>bridge faults are not detected by complete SSA test sets. For the MCNC standard-cell</nobr></div>
+<div style="position:absolute;top:11460;left:108"><nobr>implementations, the percentage detected by complete SSA test sets ranges from 87% to</nobr></div>
+<div style="position:absolute;top:11480;left:108"><nobr>98%. We have also quanti ed some of the costs (for this initial implementation) of increasing</nobr></div>
+<div style="position:absolute;top:11500;left:108"><nobr>the quality level by generating tests for the bridge faults that are not detected by the single</nobr></div>
+<div style="position:absolute;top:11520;left:108"><nobr>stuck-at tests.</nobr></div>
+<div style="position:absolute;top:11543;left:132"><nobr>This research has exposed several areas for future research. The rst is detecting the</nobr></div>
+<div style="position:absolute;top:11563;left:108"><nobr>large number of untestable bridge faults. Most of these faults are untestable because the</nobr></div>
+<div style="position:absolute;top:11584;left:108"><nobr>resulting output voltages from Bridger do not meet the logic thresholds to clearly be a logic</nobr></div>
+<div style="position:absolute;top:11604;left:108"><nobr>0 or 1. That is, the resistive model of the transistors predict an output voltage always</nobr></div>
+<div style="position:absolute;top:11624;left:108"><nobr>being between 2 and 3 Volts when the bridged nodes are being driven to di erent logic</nobr></div>
+<div style="position:absolute;top:11645;left:108"><nobr>values. Possible solutions are to employ IDDQ testing Ack83], apply more accurate circuit</nobr></div>
+<div style="position:absolute;top:11665;left:108"><nobr>simulation of faults, detect the bridge as a delay fault, or redesign the cells so that a</nobr></div>
+<div style="position:absolute;top:11685;left:108"><nobr>discrepancy is guaranteed for at least one input combination for each cell. In Table 4.1 we</nobr></div>
+<div style="position:absolute;top:11705;left:108"><nobr>show the results of our system generating IDDQ test patterns for same set of bridging faults</nobr></div>
+<div style="position:absolute;top:11726;left:108"><nobr>that produced the results in Table 3.5. Test pattern generation time and the number of</nobr></div>
+<div style="position:absolute;top:11746;left:108"><nobr>untestable faults is much less using IDDQ testing but this has to be traded o with the fact</nobr></div>
+<div style="position:absolute;top:11767;left:108"><nobr>that the application of test vectors for IDDQ testing is slower than for logic level testing</nobr></div>
+<div style="position:absolute;top:11787;left:113"><nobr>Cra87].</nobr></div>
+<div style="position:absolute;top:11810;left:132"><nobr>We also plan on integrating the testing for breaks on the interconnection lines, and the</nobr></div>
+<div style="position:absolute;top:11830;left:108"><nobr>testing for defects within the cells to Carafe and Nemesis. This would integrate all bridge</nobr></div>
+<div style="position:absolute;top:11850;left:108"><nobr>faults and break faults into our testing framework except bridges between cells and bridges</nobr></div>
+<div style="position:absolute;top:11870;left:108"><nobr>between a cell and adjacent signal lines.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:12055;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="11"><b>Page 11</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:12139;left:802"><nobr>9</nobr></div>
+<div style="position:absolute;top:12182;left:209"><nobr>Circuit C432 C499 C880 C1355 C1908 C2670 C3540 C5315 C6288 C7552</nobr></div>
+<div style="position:absolute;top:12207;left:172"><nobr>Total Faults 1546 2747 3227</nobr></div>
+<div style="position:absolute;top:12207;left:458"><nobr>4356</nobr></div>
+<div style="position:absolute;top:12207;left:522"><nobr>4669 13589 16315 40143 21475 53439</nobr></div>
+<div style="position:absolute;top:12228;left:182"><nobr>Untestable</nobr></div>
+<div style="position:absolute;top:12228;left:307"><nobr>3</nobr></div>
+<div style="position:absolute;top:12228;left:363"><nobr>0</nobr></div>
+<div style="position:absolute;top:12228;left:419"><nobr>0</nobr></div>
+<div style="position:absolute;top:12228;left:483"><nobr>3</nobr></div>
+<div style="position:absolute;top:12228;left:547"><nobr>5</nobr></div>
+<div style="position:absolute;top:12228;left:603"><nobr>24</nobr></div>
+<div style="position:absolute;top:12228;left:667"><nobr>21</nobr></div>
+<div style="position:absolute;top:12228;left:731"><nobr>26</nobr></div>
+<div style="position:absolute;top:12228;left:804"><nobr>7</nobr></div>
+<div style="position:absolute;top:12228;left:860"><nobr>47</nobr></div>
+<div style="position:absolute;top:12249;left:199"><nobr>Aborted</nobr></div>
+<div style="position:absolute;top:12249;left:307"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:363"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:419"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:483"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:547"><nobr>1</nobr></div>
+<div style="position:absolute;top:12249;left:611"><nobr>2</nobr></div>
+<div style="position:absolute;top:12249;left:675"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:739"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:804"><nobr>0</nobr></div>
+<div style="position:absolute;top:12249;left:868"><nobr>4</nobr></div>
+<div style="position:absolute;top:12270;left:201"><nobr>Covered 1543 2747 3227</nobr></div>
+<div style="position:absolute;top:12270;left:458"><nobr>4353</nobr></div>
+<div style="position:absolute;top:12270;left:522"><nobr>4663 13563 16295 40117 21468 53388</nobr></div>
+<div style="position:absolute;top:12291;left:198"><nobr>Patterns</nobr></div>
+<div style="position:absolute;top:12291;left:298"><nobr>17</nobr></div>
+<div style="position:absolute;top:12291;left:354"><nobr>20</nobr></div>
+<div style="position:absolute;top:12291;left:410"><nobr>17</nobr></div>
+<div style="position:absolute;top:12291;left:474"><nobr>18</nobr></div>
+<div style="position:absolute;top:12291;left:539"><nobr>25</nobr></div>
+<div style="position:absolute;top:12291;left:603"><nobr>17</nobr></div>
+<div style="position:absolute;top:12291;left:667"><nobr>29</nobr></div>
+<div style="position:absolute;top:12291;left:731"><nobr>23</nobr></div>
+<div style="position:absolute;top:12291;left:796"><nobr>29</nobr></div>
+<div style="position:absolute;top:12291;left:860"><nobr>30</nobr></div>
+<div style="position:absolute;top:12316;left:176"><nobr>Time (secs)</nobr></div>
+<div style="position:absolute;top:12316;left:294"><nobr>1.1</nobr></div>
+<div style="position:absolute;top:12316;left:350"><nobr>2.2</nobr></div>
+<div style="position:absolute;top:12316;left:406"><nobr>1.6</nobr></div>
+<div style="position:absolute;top:12316;left:470"><nobr>4.5</nobr></div>
+<div style="position:absolute;top:12316;left:526"><nobr>38.7</nobr></div>
+<div style="position:absolute;top:12316;left:590"><nobr>35.8</nobr></div>
+<div style="position:absolute;top:12316;left:654"><nobr>14.3</nobr></div>
+<div style="position:absolute;top:12316;left:719"><nobr>23.0</nobr></div>
+<div style="position:absolute;top:12316;left:783"><nobr>12.9</nobr></div>
+<div style="position:absolute;top:12316;left:839"><nobr>115.0</nobr></div>
+<div style="position:absolute;top:12365;left:249"><nobr>Table 4.1: Test pattern generation IDDQ statistics (standard cell)</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:21px;font-family:Times">
+<div style="position:absolute;top:12414;left:162"><nobr>Acknowledgements</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:12451;left:186"><nobr>The authors thank Alvin Jee, Heather Trumbower, Rich McGowen, and David Stae-</nobr></div>
+<div style="position:absolute;top:12471;left:162"><nobr>pelare for their work on our implementations. We also thank Dr. Krzysztof Kozminski</nobr></div>
+<div style="position:absolute;top:12491;left:162"><nobr>and MCNC for providing us with standard-cell layouts of the ISCAS benchmark circuits,</nobr></div>
+<div style="position:absolute;top:12512;left:162"><nobr>the Semiconductor Research Corporation for supporting this research under Contract 90-</nobr></div>
+<div style="position:absolute;top:12532;left:162"><nobr>DJ-141, and The National Science Foundation for supporting this work under grants MIP-</nobr></div>
+<div style="position:absolute;top:12552;left:162"><nobr>8907380 and MIP-9011254.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:13243;left:0"><hr><table width="100%" border="0"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="12"><b>Page 12</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:13327;left:108"><nobr>10</nobr></div>
+<div style="position:absolute;top:13327;left:681"><nobr>References</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:13362;left:108"><nobr>References</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:13425;left:113"><nobr>Ack83]</nobr></div>
+<div style="position:absolute;top:13425;left:192"><nobr>J.M. Acken. Testing for bridging faults (shorts) in CMOS circuits. Proceedings</nobr></div>
+<div style="position:absolute;top:13446;left:192"><nobr>of Design Automation Conference, pages 717{718, 1983.</nobr></div>
+<div style="position:absolute;top:13469;left:113"><nobr>Ack88]</nobr></div>
+<div style="position:absolute;top:13469;left:192"><nobr>John M. Acken. Deriving Accurate Fault Models. PhD thesis, Stanford University,</nobr></div>
+<div style="position:absolute;top:13489;left:192"><nobr>Department of Electrical Engineering, September 1988.</nobr></div>
+<div style="position:absolute;top:13513;left:113"><nobr>BF85]</nobr></div>
+<div style="position:absolute;top:13513;left:192"><nobr>F. Brglez and H. Fujiwara. A neutral netlist of 10 combinational benchmark</nobr></div>
+<div style="position:absolute;top:13534;left:192"><nobr>circuits and a target translator in fortran. InProceedings of the IEEE International</nobr></div>
+<div style="position:absolute;top:13555;left:192"><nobr>Symposium on Circuits and Systems, 1985.</nobr></div>
+<div style="position:absolute;top:13578;left:113"><nobr>Cra87]</nobr></div>
+<div style="position:absolute;top:13578;left:192"><nobr>C. Crapuchettes. Testing CMOS idd on large devices. In Proceedings of Inter-</nobr></div>
+<div style="position:absolute;top:13599;left:192"><nobr>national Test Conference, pages 310{315. IEEE, 1987.</nobr></div>
+<div style="position:absolute;top:13622;left:113"><nobr>FS88]</nobr></div>
+<div style="position:absolute;top:13622;left:192"><nobr>F. Joel Ferguson and John P. Shen. A CMOS fault extractor for inductive</nobr></div>
+<div style="position:absolute;top:13642;left:192"><nobr>fault analysis. IEEE Transactions on Computer-Aided Design, 7(11):1181{1194,</nobr></div>
+<div style="position:absolute;top:13662;left:192"><nobr>November 1988.</nobr></div>
+<div style="position:absolute;top:13687;left:113"><nobr>Hei88]</nobr></div>
+<div style="position:absolute;top:13687;left:192"><nobr>Dennis V. Heinbuch. CMOS3 Cell Library. Addison-Wesley Publishing Company,</nobr></div>
+<div style="position:absolute;top:13707;left:192"><nobr>1988.</nobr></div>
+<div style="position:absolute;top:13730;left:113"><nobr>Jee90]</nobr></div>
+<div style="position:absolute;top:13730;left:192"><nobr>Alvin Jee. Carafe: An inductive fault analysis tool for CMOS VLSI circuits.</nobr></div>
+<div style="position:absolute;top:13751;left:192"><nobr>Technical Report UCSC-CRL-91-24, University of California at Santa Cruz,</nobr></div>
+<div style="position:absolute;top:13771;left:192"><nobr>Computer Engineering Department, February 1990.</nobr></div>
+<div style="position:absolute;top:13795;left:113"><nobr>Lar89]</nobr></div>
+<div style="position:absolute;top:13795;left:192"><nobr>Tracy Larrabee. E cient generation of test patterns using Boolean Di erence.</nobr></div>
+<div style="position:absolute;top:13815;left:192"><nobr>In Proceedings of International Test Conference, pages 795{801. IEEE, 1989.</nobr></div>
+<div style="position:absolute;top:13839;left:113"><nobr>Lar92]</nobr></div>
+<div style="position:absolute;top:13839;left:192"><nobr>Tracy Larrabee. Test pattern generation using boolean satis ability. IEEE</nobr></div>
+<div style="position:absolute;top:13860;left:192"><nobr>Transactions on Computer-Aided Design, January 1992.</nobr></div>
+<div style="position:absolute;top:13883;left:113"><nobr>MB88]</nobr></div>
+<div style="position:absolute;top:13883;left:192"><nobr>E.J. McCluskey and F. Buelow. IC quality and test transparancy. In Proceedings</nobr></div>
+<div style="position:absolute;top:13904;left:192"><nobr>of International Test Conference, pages 295{301. IEEE, 1988.</nobr></div>
+<div style="position:absolute;top:13928;left:113"><nobr>MTCC87] W. Maly, M.E. Thomas, J.D. Chinn, and D.M. Campbell. Double-bridge test</nobr></div>
+<div style="position:absolute;top:13948;left:192"><nobr>structure for the evaluation of type, size and density of spot defects. Techni-</nobr></div>
+<div style="position:absolute;top:13968;left:192"><nobr>cal Report CMUCAD-87-2, Carnegie Mellon University, SRC-CMU Center for</nobr></div>
+<div style="position:absolute;top:13989;left:192"><nobr>Computer-Aided Design, Dept. of ECE, February 1987.</nobr></div>
+<div style="position:absolute;top:14012;left:113"><nobr>PRM90] Ashish Pancholy, Janusz Rajski, and Larry McNaughton. Empirical failure</nobr></div>
+<div style="position:absolute;top:14033;left:192"><nobr>analysis and validation of fault models in CMOS VLSI. In Proceedings of</nobr></div>
+<div style="position:absolute;top:14054;left:192"><nobr>International Test Conference, pages 938{947. IEEE, 1990.</nobr></div>
+<div style="position:absolute;top:14077;left:113"><nobr>SM90]</nobr></div>
+<div style="position:absolute;top:14077;left:192"><nobr>Thomas Storey and Wojciech Maly. CMOS bridging fault detection. In Proceed-</nobr></div>
+<div style="position:absolute;top:14098;left:192"><nobr>ings of International Test Conference, pages 842{851. IEEE, 1990.</nobr></div>
+</span></font>
+
+
+</div></body></html>

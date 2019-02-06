@@ -1,0 +1,53 @@
+* What is eMMC?
+ 
+The term eMMC is short for "embedded Multi-Media Controller" and refers to a package consisting of both flash memory and a flash memory controller integrated on the same silicon die.  The eMMC solution consists of at least three components - the MMC (multimedia card) interface, the flash memory, and the flash memory controller - and is offered in an industry-standard BGA package.
+
+Today’s embedded applications such as digital cameras, smart phones, and tablets almost always store their content on flash memory. In the past, this has required a dedicated controller to manage the reading and writing of data, driven by the application CPU. However, as semiconductor technology has evolved to allow vastly increased storage density, it has become inefficient for the controller to manage these functions from outside the flash memory die. Hence, eMMC was developed as a standardized method for bundling the controller into the flash die. As eMMC has improved, the standard has also provisioned for features such as secure erase and trim and high-priority interrupt to meet the demand for high performance and security. So while the eMMC standard was created to improve data rates and throughputs for high-density chips designed to store high-resolution video, newer generations are doing more for more applications, and each generation of the standard will include additional new features for a richer end-user experience. 
+
+The widely accepted standard for eMMC is v4.5 as defined in JESD84-A441: Embedded MultiMediaCard (e•MMC) Product Standard v4.5 published by JEDEC in June 2011. Recently, JEDEC has also published the JESD84-B45: Embedded MultiMediaCard (e•MMC), Electrical Standard (Version 4.5 Device) for eMMC v4.5 in June 2011.
+
+** Where is eMMC used?
+
+eMMC is suitable for high performance applications such as portable consumer electronic products for e.g. smartphones, digital tablets, multi-media players, PDAs, navigational systems and digital cameras. eMMC can thus be used for mobile devices, enhanced storage solutions and as replacement for traditional storage media (i.e., HDDs).
+
+** What are the benefits of eMMC?
+
+The eMMC architecture integrating the flash memory controller in the same package simplifies the application interface design and frees the host processor from low-level flash memory management. This benefits product developers by simplifying the non-volatile memory interface design and qualification process – resulting in a reduction in time-to-market as well as facilitating support for future flash device offerings.
+
+In other words, eMMC memory hides the complexities of flash memory technology in a convenient "plug-and-play" package. Obviously, this reduces time and effort for developers.
+
+Secondly, eMMC eliminates the need to develop interface software for all types of NAND memory by integrating the embedded controller into the memory chip and providing an easy-to-use memory solutions package for high-speed data transmissions by devices, such as mobile phones. It also eliminates the need for a memory expansion slot by stacking several memory functions vertically, resulting in a very small footprint for the memory devices.
+
+Further, this design makes it possible to select suppliers for subcomponents from a wider base, which results in increased revenues with lower time-to-market.
+
+** What is the required software support for eMMC?
+
+The eMMC v4.41 standard provides performance, security and reliability features such as high-priority interrupt and secure erase. These features, such as secure erase and secure trim, require software support from the file system beyond the driver, without which, the application call will not reach the storage media via the file system. Any organization, planning to move to eMMC, would need to provision for such software support from internal or external sources.
+
+With the eMMC applications market forecasted to expand to over 700 million units in 2013, there is a need for flash drivers and file systems such as those made by Datalight to specifically support eMMC standards so as to fully utilize the security features offered by them.
+
+
+* Raw Flash compared to eMMC and UFS  /  What is Managed NAND
+
+Both eMMC NAND and UFS memory are great examples of "managed NAND." These mass storage devices contain NAND flash memory along with other related controller and interface circuits. In the comparison below, we will refer to Raw Flash when speaking of non-managed NAND.
+
+** Separate Controller
+
+NOR and NAND flash memory did not originally require a separate hardware flash controller, and a circuit design could hand this functionality off to software. One of the primary features of a hardware flash controller is Error Correction and Coding (ECC). A software controller solution can only reasonably handle a few bits of correction and detection, which is far short of the 20 or more bits required by newer MLC NAND flash. Newer designs with NAND flash often require a hardware flash controller.
+
+One problem system designers encounter is matching the hardware flash controller capabilities to the requirements of the NAND flash. This problem is exacerbated by changes to the bill of materials – newer replacement flash parts often require more bits of ECC. This can mean more alterations to the design, modifications to the media interface routines and increased risk of failures.
+
+Both eMMC and UFS contain a built-in controller module, and by design it can handle the ECC requirements of the underlying NAND. Firmware to handle the ECC strategies (how often to retry, when to mark a block bad, and the like) is built in to eMMC and UFS media; this must be provided in the software layer for raw flash.
+
+A minor point with possible performance implications is the error traffic. With a separate controller, any Flash media errors will be transmitted over a longer circuit path and involve the main processor in decisions; both eMMC and UFS handle this internally with a dedicated processor. There is also a variety of raw flash media with built-in error correction, based on the ONFI EZ-NAND specification. Brand names include Micron's ClearNAND and Toshiba's SmartNAND. In these parts, the wear leveling is provided by an external software solution.
+
+** Form Factor
+
+Both NOR and NAND flash memory are available from a wide variety of manufacturers. The exact form factors and pin-outs vary widely, which can give a second source headache to an embedded system designer. The current designs of eMMC and UFS media are available in a few standard form factors and across all vendors.
+
+One additional form factor, with a smaller more rugged pin count, is industrial eMMC. There is an equivalent in raw flash – SPI NOR and NAND. These smaller packages are easier to design into small board space, and give up little to no performance.
+** Feature Set
+
+Raw flash memory often had a vendor-specific feature set, along with common interface routines. The vendor specific commands often provided additional performance or special features to the designer, at the cost of limiting second sources somewhat.
+
+The access routines of eMMC and UFS are standardized through a common Command interface, so a basic driver could read, write and erase the part. Like raw flash, the vendors have a large list of optional Jedec specification features to implement, and relying on this implementation can also restrict the list of second sources. Additionally, the firmware performance is not specified, and varies across the vendors.
